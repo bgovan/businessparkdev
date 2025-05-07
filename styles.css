@@ -36,6 +36,26 @@ section {
     padding: 1em;
     text-align: center;
     font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.cookie-banner p {
+    margin: 0 0 0.5em 0;
+}
+.nav-button {
+    background-color: #4fb3bf;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+}
+.nav-button:hover {
+    background-color: #3a97a1;
 }
 .home-content {
     display: flex;
@@ -56,17 +76,6 @@ section {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     text-align: center;
-}
-.nav-button {
-    background-color: #4fb3bf;
-    color: white;
-    border: none;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    border-radius: 4px;
-}
-.nav-button:hover {
-    background-color: #3a97a1;
 }
 
 /* Responsive adjustments */
