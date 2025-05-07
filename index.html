@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Developer</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header, footer { background-color: #333; color: white; text-align: center; padding: 1em 0; }
-        nav a { margin: 0 15px; color: white; text-decoration: none; }
-        section { padding: 2em; }
-        .project { border: 1px solid #ccc; padding: 1em; margin: 1em 0; }
-        .hidden { display: none; }
-    </style>
 </head>
 <body>
+    <div class="cookie-banner">
+        <p>We use cookies to ensure you get the best experience on our website. <button id="accept-cookies">Accept</button></p>
+    </div>
+
     <header>
         <h1>Business Park Development</h1>
         <nav>
             <a href="#" class="nav-link" data-target="home">Home</a>
             <a href="#" class="nav-link" data-target="about">About Us</a>
             <a href="#" class="nav-link" data-target="projects">Projects</a>
+            <a href="#" class="nav-link" data-target="contact">Contact Us</a>
         </nav>
     </header>
 
     <section id="home">
         <h2>Welcome</h2>
+        <div class="home-content">
+            <img src="placeholder.jpg" alt="Project Image Placeholder" class="home-image">
+            <div class="home-box">
+                <p>Discover our latest projects!</p>
+                <button class="nav-button" data-target="projects">View Projects</button>
+            </div>
+        </div>
         <p>We are a premier real estate development firm transforming spaces into thriving communities.</p>
     </section>
 
@@ -46,17 +51,27 @@
         </div>
     </section>
 
+    <section id="contact" class="hidden">
+        <h2>Contact Us</h2>
+        <p>Email: info@businessparkdev.com</p>
+        <p>Phone: (555) 123-4567</p>
+    </section>
+
     <footer>
         &copy; 2025 Business Park Development | All rights reserved
     </footer>
 
     <script>
         $(document).ready(function() {
-            $('.nav-link').click(function(e) {
+            $('.nav-link, .nav-button').click(function(e) {
                 e.preventDefault();
                 var target = $(this).data('target');
                 $('section').addClass('hidden');
                 $('#' + target).removeClass('hidden');
+            });
+
+            $('#accept-cookies').click(function() {
+                $('.cookie-banner').slideUp();
             });
         });
     </script>
