@@ -8,8 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="cookie-banner">
-        <p>We use cookies to ensure you get the best experience on our website. <button id="accept-cookies">Accept</button></p>
+    <div class="cookie-banner hidden">
+        <p>We use cookies to ensure you get the best experience on our website.</p>
+        <button id="accept-cookies" class="nav-button">Accept</button>
     </div>
 
     <header>
@@ -70,7 +71,12 @@
                 $('#' + target).removeClass('hidden');
             });
 
+            if (!localStorage.getItem('cookiesAccepted')) {
+                $('.cookie-banner').removeClass('hidden');
+            }
+
             $('#accept-cookies').click(function() {
+                localStorage.setItem('cookiesAccepted', 'true');
                 $('.cookie-banner').slideUp();
             });
         });
