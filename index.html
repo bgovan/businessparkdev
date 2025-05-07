@@ -1,1 +1,64 @@
-<h1>Annoying fucking react</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Developer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, footer { background-color: #333; color: white; text-align: center; padding: 1em 0; }
+        nav a { margin: 0 15px; color: white; text-decoration: none; }
+        section { padding: 2em; }
+        .project { border: 1px solid #ccc; padding: 1em; margin: 1em 0; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Business Park Development</h1>
+        <nav>
+            <a href="#" class="nav-link" data-target="home">Home</a>
+            <a href="#" class="nav-link" data-target="about">About Us</a>
+            <a href="#" class="nav-link" data-target="projects">Projects</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome</h2>
+        <p>We are a premier real estate development firm transforming spaces into thriving communities.</p>
+    </section>
+
+    <section id="about" class="hidden">
+        <h2>About Us</h2>
+        <p>Business Park Development has over 20 years of experience delivering high-quality commercial and residential projects across the region. Our team is committed to excellence, sustainability, and innovation.</p>
+    </section>
+
+    <section id="projects" class="hidden">
+        <h2>Our Projects</h2>
+        <div class="project">
+            <h3>Excelsior Business Park</h3>
+            <p>A state-of-the-art commercial hub featuring office spaces, retail outlets, and green areas.</p>
+        </div>
+        <div class="project">
+            <h3>Lakeview Residences</h3>
+            <p>Luxury townhomes with stunning lake views and modern amenities for families and professionals.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Business Park Development | All rights reserved
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('.nav-link').click(function(e) {
+                e.preventDefault();
+                var target = $(this).data('target');
+                $('section').addClass('hidden');
+                $('#' + target).removeClass('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
