@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <header>
+    <header id="main-header">
         <h1>Business Park Development</h1>
         <nav>
             <a href="#" class="nav-link" data-target="home">Home</a>
@@ -40,12 +40,12 @@
         </div>
     </section>
 
-    <section id="about" class="hidden">
+    <section id="about" class="page-section hidden">
         <h2>About Us</h2>
         <p>Business Park Development has over 20 years of experience delivering high-quality commercial and residential projects across the region. Our team is committed to excellence, sustainability, and innovation.</p>
     </section>
 
-    <section id="projects" class="hidden">
+    <section id="projects" class="page-section hidden">
         <h2>Our Projects</h2>
         <div class="project">
             <h3>Excelsior Business Park</h3>
@@ -57,7 +57,7 @@
         </div>
     </section>
 
-    <section id="contact" class="hidden">
+    <section id="contact" class="page-section hidden">
         <h2>Contact Us</h2>
         <p>Email: info@businessparkdev.com</p>
         <p>Phone: (555) 123-4567</p>
@@ -68,32 +68,51 @@
     </footer>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             function setActiveLink(target) {
                 $('.nav-link').removeClass('active');
                 $('.nav-link[data-target="' + target + '"]').addClass('active');
+                const $link = $('.nav-link[data-target="' + target + '"]');
+                const offset = $link.position().left;
+                const width = $link.outerWidth();
+                $('.nav-underline').css({ left: offset, width: width });
             }
 
-            $('.nav-link, .nav-button').click(function(e) {
+            $('.nav-link, .nav-button').click(function (e) {
                 e.preventDefault();
                 var target = $(this).data('target');
-                $('section').addClass('hidden');
-                $('#' + target).removeClass('hidden');
-                setActiveLink(target);
+                $('section').fadeOut(200);
+                setTimeout(() => {
+                    $('section').addClass('hidden');
+                    $('#' + target).removeClass('hidden').fadeIn(200);
+                    setActiveLink(target);
+
+                    if (target === 'home') {
+                        $('#main-header').addClass('transparent');
+                    } else {
+                        $('#main-header').removeClass('transparent');
+                    }
+                }, 200);
             });
 
             if (!localStorage.getItem('cookiesChoice')) {
                 $('.cookie-banner').removeClass('hidden');
             }
 
-            $('#accept-cookies').click(function() {
+            $('#accept-cookies').click(function () {
                 localStorage.setItem('cookiesChoice', 'accepted');
                 $('.cookie-banner').slideUp();
             });
 
-            $('#decline-cookies').click(function() {
+            $('#decline-cookies').click(function () {
                 localStorage.setItem('cookiesChoice', 'declined');
                 $('.cookie-banner').slideUp();
+            });
+
+            $(window).on('mousemove', function (e) {
+                let x = (e.pageX - window.innerWidth / 2) / 80;
+                let y = (e.pageY - window.innerHeight / 2) / 80;
+                $('.hero-section').css('transform', `translate(${x}px, ${y}px)`);
             });
 
             setActiveLink('home');
