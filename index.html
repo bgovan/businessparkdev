@@ -10,7 +10,10 @@
 <body>
     <div class="cookie-banner hidden">
         <p>We use cookies to ensure you get the best experience on our website.</p>
-        <button id="accept-cookies" class="nav-button">Accept</button>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="nav-button">Accept</button>
+            <button id="decline-cookies" class="nav-button">Decline</button>
+        </div>
     </div>
 
     <header>
@@ -20,19 +23,21 @@
             <a href="#" class="nav-link" data-target="about">About Us</a>
             <a href="#" class="nav-link" data-target="projects">Projects</a>
             <a href="#" class="nav-link" data-target="contact">Contact Us</a>
+            <div class="nav-underline"></div>
         </nav>
     </header>
 
-    <section id="home">
-        <h2>Welcome</h2>
-        <div class="home-content">
-            <img src="placeholder.jpg" alt="Project Image Placeholder" class="home-image">
-            <div class="home-box">
-                <p>Discover our latest projects!</p>
-                <button class="nav-button" data-target="projects">View Projects</button>
+    <section id="home" class="hero-section">
+        <div class="hero-overlay">
+            <h2>Welcome</h2>
+            <div class="home-content">
+                <div class="home-box">
+                    <p>Discover our latest projects!</p>
+                    <button class="nav-button" data-target="projects">View Projects</button>
+                </div>
             </div>
+            <p class="home-text">We are a premier real estate development firm transforming spaces into thriving communities.</p>
         </div>
-        <p>We are a premier real estate development firm transforming spaces into thriving communities.</p>
     </section>
 
     <section id="about" class="hidden">
@@ -64,21 +69,34 @@
 
     <script>
         $(document).ready(function() {
+            function setActiveLink(target) {
+                $('.nav-link').removeClass('active');
+                $('.nav-link[data-target="' + target + '"]').addClass('active');
+            }
+
             $('.nav-link, .nav-button').click(function(e) {
                 e.preventDefault();
                 var target = $(this).data('target');
                 $('section').addClass('hidden');
                 $('#' + target).removeClass('hidden');
+                setActiveLink(target);
             });
 
-            if (!localStorage.getItem('cookiesAccepted')) {
+            if (!localStorage.getItem('cookiesChoice')) {
                 $('.cookie-banner').removeClass('hidden');
             }
 
             $('#accept-cookies').click(function() {
-                localStorage.setItem('cookiesAccepted', 'true');
+                localStorage.setItem('cookiesChoice', 'accepted');
                 $('.cookie-banner').slideUp();
             });
+
+            $('#decline-cookies').click(function() {
+                localStorage.setItem('cookiesChoice', 'declined');
+                $('.cookie-banner').slideUp();
+            });
+
+            setActiveLink('home');
         });
     </script>
 </body>
