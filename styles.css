@@ -35,7 +35,7 @@ nav a.active::after {
     background-color: white;
 }
 .hero-section {
-    background: url('placeholder.jpg') no-repeat center center/cover;
+    background: url('images/CoverPage.jpg') no-repeat center center/cover;
     height: 100vh;
     position: relative;
     display: flex;
