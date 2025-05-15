@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <header id="main-header">
+    <header id="main-header" class="transparent">
         <h1>Business Park Development</h1>
         <nav>
             <a href="#" class="nav-link" data-target="home">Home</a>
@@ -27,20 +27,19 @@
         </nav>
     </header>
 
-    <div class="hero-background">
-        <section id="home" class="hero-section">
-            <div class="hero-overlay">
-                <h2>Welcome</h2>
-                <div class="home-content">
-                    <div class="home-box">
-                        <p>Discover our latest projects!</p>
-                        <button class="nav-button" data-target="projects">View Projects</button>
-                    </div>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h2>Welcome</h2>
+            <div class="home-content">
+                <div class="home-box">
+                    <p>Discover our latest projects!</p>
+                    <button class="nav-button" data-target="projects">View Projects</button>
                 </div>
-                <p class="home-text">We are a premier real estate development firm transforming spaces into thriving communities.</p>
             </div>
-        </section>
-    </div>
+            <p class="home-text">We are a premier real estate development firm transforming spaces into thriving communities.</p>
+        </div>
+        <div class="hero-background"></div>
+    </section>
 
     <section id="about" class="page-section hidden">
         <h2>About Us</h2>
@@ -91,10 +90,8 @@
 
                     if (target === 'home') {
                         $('#main-header').addClass('transparent');
-                        $('.hero-background').show();
                     } else {
                         $('#main-header').removeClass('transparent');
-                        $('.hero-background').hide();
                     }
                 }, 200);
             });
@@ -119,9 +116,7 @@
                 $('.hero-background').css('transform', `translate(${x}px, ${y}px)`);
             });
 
-            // Initialize
             setActiveLink('home');
-            $('.hero-background').show();
         });
     </script>
 </body>
