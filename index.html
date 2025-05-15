@@ -27,18 +27,20 @@
         </nav>
     </header>
 
-    <section id="home" class="hero-section">
-        <div class="hero-overlay">
-            <h2>Welcome</h2>
-            <div class="home-content">
-                <div class="home-box">
-                    <p>Discover our latest projects!</p>
-                    <button class="nav-button" data-target="projects">View Projects</button>
+    <div class="hero-background">
+        <section id="home" class="hero-section">
+            <div class="hero-overlay">
+                <h2>Welcome</h2>
+                <div class="home-content">
+                    <div class="home-box">
+                        <p>Discover our latest projects!</p>
+                        <button class="nav-button" data-target="projects">View Projects</button>
+                    </div>
                 </div>
+                <p class="home-text">We are a premier real estate development firm transforming spaces into thriving communities.</p>
             </div>
-            <p class="home-text">We are a premier real estate development firm transforming spaces into thriving communities.</p>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section id="about" class="page-section hidden">
         <h2>About Us</h2>
@@ -89,8 +91,10 @@
 
                     if (target === 'home') {
                         $('#main-header').addClass('transparent');
+                        $('.hero-background').show();
                     } else {
                         $('#main-header').removeClass('transparent');
+                        $('.hero-background').hide();
                     }
                 }, 200);
             });
@@ -112,10 +116,12 @@
             $(window).on('mousemove', function (e) {
                 let x = (e.pageX - window.innerWidth / 2) / 80;
                 let y = (e.pageY - window.innerHeight / 2) / 80;
-                $('.hero-section').css('transform', `translate(${x}px, ${y}px)`);
+                $('.hero-background').css('transform', `translate(${x}px, ${y}px)`);
             });
 
+            // Initialize
             setActiveLink('home');
+            $('.hero-background').show();
         });
     </script>
 </body>
