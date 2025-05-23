@@ -17,7 +17,7 @@
     </div>
 
     <header id="main-header" class="transparent">
-        <h1>Business Park Development</h1>
+        <h1>Business Park Development Corp.</h1>
         <nav>
             <a href="#" class="nav-link" data-target="home">Home</a>
             <a href="#" class="nav-link" data-target="about">About Us</a>
@@ -41,24 +41,106 @@
         <div class="hero-background"></div>
     </section>
 
-    <section id="about" class="page-section hidden">
-        <h2>About Us</h2>
-        <p>Business Park Development has over 20 years of experience delivering high-quality commercial and residential projects across the region. Our team is committed to excellence, sustainability, and innovation.</p>
-    </section>
-
-    <section id="projects" class="page-section hidden">
-        <h2>Our Projects</h2>
-        <div class="project">
-            <h3>Excelsior Business Park</h3>
-            <p>A state-of-the-art commercial hub featuring office spaces, retail outlets, and green areas.</p>
+    <section id="about" class="page-section with-padding hidden">
+    <div class="about-wrapper">
+        <!-- Block 1 -->
+        <div class="about-block">
+            <div class="about-header">
+                <h2>Business Park Development Corporation</h2>
+                <div class="about-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                	<p>
+                        	Founded in Jupiter, Florida, BPDC is a family-owned, privately held commercial real estate developer of master planned mixed-use projects across the state of Florida. 
+		    	</p>
+			<p>
+				Led by President Craig Govan, a native of Florida, the company has successfully served as Master Developer or collaborated in joint ventures with a co-developer on more than a million square feet of commercial development. 
+			</p>
+			<p>
+				Govan has collaborated in successful Public-Private Partnerships with municipalities to help develop public land assets, most recently with the City of Apopka on 35 acres with the Apopka City Center, a new urban core for the growing community northwest of Orlando. 
+			</p>
+			<p>
+				With a proven track record of commercial real estate investment results spanning more than three decades, BPDC delivers above-average returns year over year for its investors. 
+                    	</p>
+                </div>
+                <div class="about-image">
+                    <div class="headshot-box">
+    			<img src="BPDC_Logo.png" alt="Team Member Photo">
+		    </div>
+                </div>
+            </div>
         </div>
-        <div class="project">
-            <h3>Lakeview Residences</h3>
-            <p>Luxury townhomes with stunning lake views and modern amenities for families and professionals.</p>
-        </div>
-    </section>
 
-    <section id="contact" class="page-section hidden">
+        <!-- Block 2 -->
+        <div class="about-block">
+            <div class="about-header">
+                <h2>About Craig</h2>
+                <div class="about-underline"></div>
+            </div>
+            <div class="about-content reverse">
+                <div class="about-image">
+                    <div class="headshot-box">
+    			<img src="headshot-craig-govan.jpg" alt="Headshot Photo">
+		    </div>
+                </div>
+                <div class="about-text">
+                    	<h3>
+                        	Craig Govan
+			</h3>
+			<p>
+				Craig Govan has more than 35 years of career experience developing and building master-planned commercial developments, including business parks and mixed-use community hubs with residential components. 
+			</p>
+			<p>
+				He also specializes in complex land entitlement projects that require a comprehensive knowledge of local, county and state governmental regulations.  
+			</p>
+			<p>
+				Craig has completed projects throughout the southeastern United States, grew up in Clearwater and attended both Clearwater and Pinellas Park high schools.
+			</p>
+
+			<h3>
+				Education:
+			</h3>
+			<p>
+				University of Florida, B.A. from the School of Building Construction, 1985
+			</p>
+
+			<p>
+				Massachusetts Institute of Technology (MIT), MSRED, 1994
+			</p>
+
+			<p>
+				"Class-A" General Contractor and Licensed Real Estate Broker in Florida since 1986 
+                    	</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="page-section with-padding hidden">
+    <div class="project-featured-video">
+        <div class="video-wrapper">
+            	<iframe
+  			src="https://www.youtube.com/embed/c6rvTktYSNE?autoplay=1&mute=1&loop=1&playlist=c6rvTktYSNE&controls=0&modestbranding=1&rel=0&showinfo=0"
+  			title="Business Park Development Corp"
+  			frameborder="0"
+  			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  			allowfullscreen>
+		</iframe>
+        </div>
+        <div class="video-overlay-text">
+            <h2>Princeton Park of Commerce</h2>
+            <p>A bold new development project redefining business parks in Central Florida.</p>
+        </div>
+    </div>
+
+    <div class="projects-wrapper">
+        <!-- Project grid cards go here -->
+    </div>
+</section>
+
+    <section id="contact" class="page-section with-padding hidden">
         <h2>Contact Us</h2>
         <p>Email: info@businessparkdev.com</p>
         <p>Phone: (555) 123-4567</p>
@@ -69,55 +151,71 @@
     </footer>
 
     <script>
-        $(document).ready(function () {
-            function setActiveLink(target) {
-                $('.nav-link').removeClass('active');
-                $('.nav-link[data-target="' + target + '"]').addClass('active');
-                const $link = $('.nav-link[data-target="' + target + '"]');
-                const offset = $link.position().left;
-                const width = $link.outerWidth();
-                $('.nav-underline').css({ left: offset, width: width });
-            }
+    $(document).ready(function () {
+        function setActiveLink(target) {
+    $('.nav-link').removeClass('active');
+    const $link = $('.nav-link[data-target="' + target + '"]');
+    $link.addClass('active');
 
-            $('.nav-link, .nav-button').click(function (e) {
-                e.preventDefault();
-                var target = $(this).data('target');
-                $('section').fadeOut(200);
-                setTimeout(() => {
-                    $('section').addClass('hidden');
-                    $('#' + target).removeClass('hidden').fadeIn(200);
-                    setActiveLink(target);
+    const navOffset = $('nav').offset().left;
+    const linkOffset = $link.offset().left;
+    const offset = linkOffset - navOffset;
+    const width = $link.outerWidth();
 
-                    if (target === 'home') {
-                        $('#main-header').addClass('transparent');
-                    } else {
-                        $('#main-header').removeClass('transparent');
-                    }
-                }, 200);
-            });
+    $('.nav-underline').css({ left: offset, width: width });
+}
 
-            if (!localStorage.getItem('cookiesChoice')) {
-                $('.cookie-banner').removeClass('hidden');
-            }
+// Recalculate underline on resize
+$(window).on('resize', function () {
+    const $active = $('.nav-link.active');
+    if ($active.length) {
+        setActiveLink($active.data('target'));
+    }
+});
 
-            $('#accept-cookies').click(function () {
-                localStorage.setItem('cookiesChoice', 'accepted');
-                $('.cookie-banner').slideUp();
-            });
 
-            $('#decline-cookies').click(function () {
-                localStorage.setItem('cookiesChoice', 'declined');
-                $('.cookie-banner').slideUp();
-            });
+        $('.nav-link, .nav-button').click(function (e) {
+            e.preventDefault();
 
-            $(window).on('mousemove', function (e) {
-                let x = (e.pageX - window.innerWidth / 2) / 80;
-                let y = (e.pageY - window.innerHeight / 2) / 80;
-                $('.hero-background').css('transform', `translate(${x}px, ${y}px)`);
-            });
+            var target = $(this).data('target');
+            if (!target) return; // Prevent unintended action for buttons without data-target (like cookie buttons)
 
-            setActiveLink('home');
+            $('section').fadeOut(200);
+            setTimeout(() => {
+                $('section').addClass('hidden');
+                $('#' + target).removeClass('hidden').fadeIn(200);
+                setActiveLink(target);
+
+                if (target === 'home') {
+                    $('#main-header').addClass('transparent');
+                } else {
+                    $('#main-header').removeClass('transparent');
+                }
+            }, 200);
         });
-    </script>
+
+        if (!localStorage.getItem('cookiesChoice')) {
+            $('.cookie-banner').removeClass('hidden');
+        }
+
+        $('#accept-cookies').click(function () {
+            localStorage.setItem('cookiesChoice', 'accepted');
+            $('.cookie-banner').slideUp();
+        });
+
+        $('#decline-cookies').click(function () {
+            localStorage.setItem('cookiesChoice', 'declined');
+            $('.cookie-banner').slideUp();
+        });
+
+        $(window).on('mousemove', function (e) {
+            let x = (e.pageX - window.innerWidth / 2) / 80;
+            let y = (e.pageY - window.innerHeight / 2) / 80;
+            $('.hero-background').css('transform', `translate(${x}px, ${y}px)`);
+        });
+
+        setActiveLink('home');
+    });
+</script>
 </body>
 </html>
