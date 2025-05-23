@@ -31,16 +31,6 @@ nav a {
     position: relative;
     transition: color 0.3s;
 }
-nav a.active::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    transition: width 0.3s ease;
-}
 .nav-underline {
     position: absolute;
     bottom: 0;
@@ -82,6 +72,9 @@ nav a.active::after {
 }
 .page-section {
     padding: 2em 1em;
+}
+.with-padding {
+    padding-top: 8em; /* Adjust to match navbar height */
 }
 .project {
     border: 1px solid #ccc;
@@ -125,6 +118,141 @@ nav a.active::after {
 .nav-button:hover {
     background-color: #3a97a1;
 }
+
+.about-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 4em; /* space between block sections */
+}
+
+.about-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.about-header {
+    text-align: center;
+}
+
+.about-header h2 {
+    font-size: 2em;
+    margin-bottom: 0.3em;
+}
+
+.about-underline {
+    width: 80px;
+    height: 4px;
+    background-color: #4fb3bf;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.about-content.reverse {
+    flex-direction: row;
+}
+
+.about-text {
+    flex: 1 1 60%;
+    font-size: 1.1em;
+    line-height: 1.6;
+    min-width: 250px;
+}
+
+.about-image {
+    flex: 1 1 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+}
+
+.headshot-box {
+    //width: 100%;
+    //max-width: 300px;
+    //height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //background-color: #dfeff3;
+}
+
+.headshot-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-featured-video {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 3em;
+    height: 60vh;
+    max-height: 600px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.video-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.video-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2em;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1;
+    max-width: 90%;
+}
+
+.video-overlay-text h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.video-overlay-text p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
 footer {
     background-color: #4fb3bf;
     color: white;
@@ -145,5 +273,19 @@ footer {
     }
     .hero-content {
         padding: 1em 0;
+    }
+    .about-content, .about-content.reverse {
+        flex-direction: column;
+    }
+
+    .about-text, .about-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .headshot-box {
+        width: 80%;
+        height: 250px;
     }
 }
