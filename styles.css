@@ -524,4 +524,7 @@ footer {
         width: 80%;
         height: 250px;
     }
+    .projects-grid {
+    	grid-template-columns: 1fr; /* 1 column on small screens */
+    }
 }
