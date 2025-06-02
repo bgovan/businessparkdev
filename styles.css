@@ -503,6 +503,13 @@ footer {
     .subheadline {
         font-size: 1em;
     }
+    .project-featured-video {
+    	height: auto;       /* Let content set the height */
+    	max-height: none;   /* Remove fixed cap */
+    }
+     .video-overlay-text {
+    	display: none;
+    }
     .about-content, .about-content.reverse {
         flex-direction: column;
     }
