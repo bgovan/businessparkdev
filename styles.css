@@ -432,6 +432,7 @@ footer {
 .contact-container {
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 140px;
     text-align: center;
     padding: 2em;
     background-color: #ffffff;
